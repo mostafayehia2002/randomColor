@@ -33,7 +33,7 @@ function copyCode() {
         if (e.target.classList.contains("color")) {
             navigator.clipboard.writeText(e.target.nextElementSibling.innerHTML);
             let code=e.target.nextElementSibling.innerHTML;
-            e.target.nextElementSibling.innerHTML="coppyed";
+            e.target.nextElementSibling.innerHTML="copied";
            setTimeout(()=>{
             e.target.nextElementSibling.innerHTML=code;
            },1000)
