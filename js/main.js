@@ -5,11 +5,11 @@ let box;
 let text;
 //function to refresh page
 btn.onclick = () => {
-    container.innerHTML = "";
+   window.location.reload();  
+}
+window.onload=()=>{
     createBox();
 }
-
-createBox();
 
 function createBox() {
     let randomHexaDecimal;
@@ -22,21 +22,29 @@ function createBox() {
         box = document.querySelectorAll(".container .box .color");
         box[i].style.backgroundColor = `#${randomHexaDecimal}`;
     }
-    //select All text code 
-    text = document.querySelectorAll(".container .box .text");
+    // //select All text code 
+    // text = document.querySelectorAll(".container .box .text");
     //call function copyCode
     copyCode();
 }
 //function to copy hexaDesimal code of color
 function copyCode() {
+    let code;
     document.addEventListener("click", (e) => {
         if (e.target.classList.contains("color")) {
+
             navigator.clipboard.writeText(e.target.nextElementSibling.innerHTML);
-            let code=e.target.nextElementSibling.innerHTML;
+
+            code=e.target.nextElementSibling.innerHTML;
+
             e.target.nextElementSibling.innerHTML="copied";
-           setTimeout(()=>{
+
+        setTimeout(()=>{
+
             e.target.nextElementSibling.innerHTML=code;
-           },1000)
+
+           },500);
+         
         }
     })
 }
